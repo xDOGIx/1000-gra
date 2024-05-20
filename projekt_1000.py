@@ -13,7 +13,7 @@ class Gracz:
         self.reka = []
         self.stawka = 0  
 
-
+# =====================================================================================================================================================
     def spin_ruletka(self):
         return random.randint(1,36)
 
@@ -109,6 +109,7 @@ class Gracz:
             print("Twój aktualny stan konta: $", self.stan_konta)
             break
 
+# =====================================================================================================================================================
 
     def blackjack(self):
         while True:
@@ -210,6 +211,7 @@ class Gracz:
                 print("Niepoprawny wybór, wpisz 't' dla tak lub 'n' dla nie.")
 
 
+# =====================================================================================================================================================
 
     def automaty(self):
         print("=========================================================================")
@@ -251,6 +253,8 @@ class Gracz:
         else:
             print("Niestety, nie udało się wygrać.")
 
+
+# =====================================================================================================================================================
 
     def kosci(self):
         print("=========================================================================")
@@ -310,6 +314,8 @@ class Gracz:
                 elif kolejny_rzut == 7:
                     print("Niestety, wyrzuciłeś sumę 7, co oznacza, że przegrywasz.")
                     break
+
+# =====================================================================================================================================================
 
 
     def wyścigi_psów(self):
@@ -415,6 +421,8 @@ class Gracz:
             return "Niestety, nie udało ci się wygrać. Spróbuj ponownie!"
 
 
+# =====================================================================================================================================================
+
     def loteria(self):
         print("Witaj w loterii!")
         print("Zasady gry: Wybierz od 1 do 10 liczb od 1 do 50.")
@@ -454,6 +462,7 @@ class Gracz:
             self.stan_konta -= stawka_kwota
 
 
+# =====================================================================================================================================================
 
     def pokaz_stan_konta(self):
         print("=========================================================================")
@@ -465,6 +474,8 @@ class Gracz:
     def rzut_kostka(self):
         return random.randint(1, 6)
 
+
+# =====================================================================================================================================================
 
     def zaciagnij_kredyt(self):
         while True:
@@ -486,6 +497,8 @@ class Gracz:
                 print("Niepoprawny wybór! Wpisz 't' lub 'n'.")
 
 
+# =====================================================================================================================================================
+
     def splata_kredytu(self):
         if self.zadluzenie > 0:
             odsetki = int(self.zadluzenie * 0.30)  
@@ -504,6 +517,8 @@ class Gracz:
                 else:
                     print("Niepoprawny wybór! Wpisz 't' lub 'n'.")
 
+
+# =====================================================================================================================================================
 
     def przegrana(self, kwota):
         self.stan_konta -= kwota
@@ -622,7 +637,7 @@ def sprawdz_reke(gracz):
 def nowa_runda(gracz, talia, stawka, wyniki):
     gracz.dobierz_poczatkowe_karty(talia)
     gracz.wyswietl_reke()
-    gracz.stawka = stawka  # Ustawiamy stawkę gracza na wartość globalnej stawki
+    gracz.stawka = stawka  
     obstawienie = obstawanie(gracz, stawka)
     if obstawienie:
         podbicie = czy_podbic_stawke(gracz, stawka)
@@ -675,7 +690,7 @@ def czy_podbic_stawke(gracz, stawka, min_podbij_stawke=2, max_podbij_stawke=5):
                 if podbicie >= min_podbij_stawke and podbicie <= max_podbij_stawke:
                     if podbicie <= gracz.stan_konta:
                         gracz.przegrana(podbicie)
-                        gracz.stawka += podbicie  # Aktualizujemy stawkę gracza
+                        gracz.stawka += podbicie  
                         print(f"Stawka została podbita o {podbicie}. Nowa stawka: {gracz.stawka}")
                         return True
                     else:
@@ -713,6 +728,8 @@ def gra_poker():
         if odpowiedz != 'tak':
             print("Dziękujemy za grę!")
             break
+
+# =====================================================================================================================================================
 
 
 def kasyno():
@@ -767,5 +784,15 @@ def kasyno():
         else:
             print("Niepoprawny wybór!")
 
+        if wybor == "cheat":
+            gracz.stan_konta += 1000000
+            print("Zostałeś właścicielem kasyna")
+
+
 if __name__ == "__main__":
     kasyno()
+
+
+print("dziękuje za zagranie w moją gre. licze na jakąś pozytywną ocene.")
+
+
